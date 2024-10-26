@@ -49,7 +49,7 @@ export const ButtonWidget: FC<ButtonWidgetProps> = ({
 
   return (
     <div
-      className="flex flex-col gap-4 bg-neutral-800 m-4 w-[25vw] h-[50vh] relative p-2"
+      className="flex flex-col gap-4 bg-neutral-800 w-[25vw] h-[50vh] relative p-2"
       onMouseDown={(e) => mouseHandler(e)}
       onContextMenu={(e) => e.preventDefault()}
     >
