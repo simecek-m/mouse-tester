@@ -61,7 +61,12 @@ export const ClickArea: FC<ClickAreaProps> = ({
       >
         {title}
       </h3>
-      <div className="h-full overflow-auto p-2 flex flex-col items-end gutter-stable">
+      <div
+        className="h-full overflow-auto p-2 flex flex-col items-end gutter-stable"
+        onMouseDown={(e) => {
+          e.preventDefault();
+        }}
+      >
         {times.map((time, index) => {
           if (times.length > index + 1) {
             const prevTime: number = times[index + 1];
