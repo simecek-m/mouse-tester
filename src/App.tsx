@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ClickArea } from "./components/ClickArea";
+import { ButtonWidget } from "./components/ButtonWidget";
 import MouseLogo from "./assets/mouse.svg?react";
 
 const App: FC = () => {
@@ -11,10 +11,28 @@ const App: FC = () => {
         <MouseLogo className="fill-emerald-400 w-12 h-12" />
         <h1>Mouse tester</h1>
       </div>
+      <section className="w-full flex flex-row justify-center items-center">
+        <ButtonWidget
+          title="Left"
+          buttonType="left"
+          threshold={threshold ?? 0}
+        />
+        <ButtonWidget
+          title="Middle"
+          buttonType="middle"
+          threshold={threshold ?? 0}
+        />
+        <ButtonWidget
+          title="Right"
+          buttonType="right"
+          threshold={threshold ?? 0}
+        />
+      </section>
       <section className="flex flex-col text-white p-2">
-        <label htmlFor="threshold" className="font-bold text-emerald-400">
+        <label htmlFor="threshold" className="font-bold text-xl text-red-400">
           Threshold
         </label>
+        <span>change the threshold to better suit your test case</span>
         <input
           className="appearance-none bg-neutral-600 h-2 my-4"
           type="range"
@@ -42,7 +60,7 @@ const App: FC = () => {
                 setThreshold(null);
               }
               const num = parseInt(e.target.value);
-              if (num >= 0 && num < 1000) {
+              if (num >= 0 && num <= 1000) {
                 setThreshold(num);
               }
             } catch (error) {
@@ -51,25 +69,8 @@ const App: FC = () => {
           }}
         />
         <div className="text-xs text-neutral-300 italic w-full text-end">
-          max error-free interval between clicks (ms)
+          max error-free interval between clicks in millisecond
         </div>
-      </section>
-      <section className="h-full w-full flex flex-row justify-center items-center">
-        <ClickArea
-          title="Left button"
-          buttonType="left"
-          threshold={threshold ?? 0}
-        />
-        <ClickArea
-          title="Middle button"
-          buttonType="middle"
-          threshold={threshold ?? 0}
-        />
-        <ClickArea
-          title="Right button"
-          buttonType="right"
-          threshold={threshold ?? 0}
-        />
       </section>
     </div>
   );
