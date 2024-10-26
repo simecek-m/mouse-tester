@@ -32,7 +32,7 @@ const App: FC = () => {
           id="myRange"
         />
         <input
-          className="bg-neutral-700 px-4 py-2 text-lg rounded-lg text-white outline-none w-96"
+          className="bg-neutral-700 px-4 py-2 text-lg rounded-sm text-white outline-none w-96"
           value={threshold ?? ""}
           type="number"
           onChange={(e) => {

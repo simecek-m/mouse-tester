@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .gutter-stable {
+    scrollbar-gutter: stable;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -14,11 +20,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.neutral.400');
+  background: theme('colors.neutral.500');
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.neutral.600');
+  background: theme('colors.neutral.400');
 }

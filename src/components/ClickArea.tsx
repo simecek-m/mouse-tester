@@ -49,31 +49,33 @@ export const ClickArea: FC<ClickAreaProps> = ({
 
   return (
     <div
-      className="flex flex-col bg-neutral-800 m-4 w-80 h-80 rounded-lg overflow-hidden"
+      className="flex flex-col gap-4 bg-neutral-800 m-4 w-80 h-80 relative p-2"
       onMouseDown={(e) => mouseHandler(e)}
       onContextMenu={(e) => e.preventDefault()}
     >
       <h3
         className={cn(
-          "w-450px w-full text-center text-lg bg-emerald-400 text-black font-semibold p-2 select-none",
+          "w-450px w-full text-center text-lg bg-emerald-400 rounded-sm text-black font-semibold p-2 select-none",
           { "bg-red-500 text-white": isError }
         )}
       >
         {title}
       </h3>
-      <div className="h-full overflow-auto text-white p-2 flex flex-col items-end">
+      <div className="h-full overflow-auto p-2 flex flex-col items-end gutter-stable">
         {times.map((time, index) => {
           if (times.length > index + 1) {
             const prevTime: number = times[index + 1];
             const result = time - prevTime;
             return (
-              <div
-                key={index}
-                className={cn("", {
-                  "text-red-500 font-bold text-lg": result < threshold,
-                })}
-              >
-                {result} ms
+              <div key={index}>
+                <span
+                  className={cn("text-white me-1", {
+                    "text-red-500 font-bold text-lg": result < threshold,
+                  })}
+                >
+                  {result}
+                </span>
+                <span className="text-neutral-400">ms</span>
               </div>
             );
           } else {
@@ -81,8 +83,10 @@ export const ClickArea: FC<ClickAreaProps> = ({
           }
         })}
       </div>
-      <div className="bg-neutral-400 p-2">
-        You've clicked <strong>{count}</strong> times.
+      <div className="bg-neutral-700 p-2 text-neutral-300 rounded-sm">
+        <span>You've clicked</span>
+        <span className="text-white font-bold text-lg px-1">{count}</span>
+        <span>times.</span>
       </div>
     </div>
   );
