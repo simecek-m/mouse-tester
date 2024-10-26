@@ -8,23 +8,37 @@
   }
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: theme('colors.neutral.500');
   border-radius: 5px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: theme('colors.neutral.400');
+}
+
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 100%;
+  width: 25px; 
+  height: 25px;
+  background: theme("colors.emerald.400");
+  cursor: pointer; 
+}
+
+::-moz-range-thumb {
+  border-radius: 100%;
+  width: 25px; 
+  height: 25px;
+  background: theme("colors.emerald.400");
+  cursor: pointer; 
 }

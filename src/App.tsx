@@ -16,6 +16,7 @@ const App: FC = () => {
           Threshold
         </label>
         <input
+          className="appearance-none bg-neutral-600 h-2 my-4"
           type="range"
           min="0"
           max="1000"
@@ -29,7 +30,6 @@ const App: FC = () => {
               console.error(error);
             }
           }}
-          id="myRange"
         />
         <input
           className="bg-neutral-700 px-4 py-2 text-lg rounded-sm text-white outline-none w-96"
