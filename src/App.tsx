@@ -5,20 +5,23 @@ const App: FC = () => {
   const [threshold, setThreshold] = useState<number | null>(100);
 
   return (
-    <div className="flex flex-col w-screen h-screen bg-neutral-950 select-none justify-center items-center">
+    <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center">
       <div className="flex flex-col w-fit gap-8">
-        <div className="text-emerald-400 font-bold text-4xl select-none flex flex-row gap-2">
+        <div className="text-emerald-600 dark:text-emerald-400 font-bold text-4xl select-none flex flex-row gap-2">
           <h1>Mouse tester</h1>
         </div>
         <section className="flex flex-col text-white w-fit">
-          <label htmlFor="threshold" className="font-bold text-lg text-red-400">
+          <label
+            htmlFor="threshold"
+            className="font-bold text-lg text-red-600 dark:text-red-400"
+          >
             Threshold
           </label>
-          <span className="text-sm text-neutral-300">
+          <span className="text-sm text-neutral-600 dark:text-neutral-300">
             change the threshold to better suit your test case
           </span>
           <input
-            className="appearance-none bg-neutral-800 h-2 my-4"
+            className="appearance-none bg-neutral-300 dark:bg-neutral-800 h-2 my-4"
             type="range"
             min="0"
             max="1000"
@@ -34,7 +37,7 @@ const App: FC = () => {
             }}
           />
           <input
-            className="bg-neutral-800 px-4 py-2 text-lg rounded-sm text-white outline-none w-96"
+            className="dark:bg-neutral-800 bg-neutral-300 px-4 py-2 text-lg rounded-sm dark:text-white text-black outline-none w-96"
             value={threshold ?? ""}
             type="number"
             onChange={(e) => {
@@ -52,7 +55,7 @@ const App: FC = () => {
               }
             }}
           />
-          <div className="text-xs text-neutral-300 italic w-full text-end">
+          <div className="text-xs text-neutral-600 dark:text-neutral-300 italic w-full text-end">
             max error-free interval between clicks in millisecond
           </div>
         </section>

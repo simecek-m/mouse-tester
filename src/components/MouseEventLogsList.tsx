@@ -27,13 +27,16 @@ export const MouseEventLogsList: FC<MouseEventLogsListProps> = ({
             return (
               <div key={index}>
                 <span
-                  className={cn("text-white me-1", {
-                    "text-red-500 font-bold text-lg": result < threshold,
+                  className={cn("text-black dark:text-white me-1", {
+                    "text-red-600 dark:text-red-500 font-bold text-lg":
+                      result < threshold,
                   })}
                 >
                   {result}
                 </span>
-                <span className="text-neutral-400">ms</span>
+                <span className="dark:text-neutral-400 text-neutral-500 text-sm">
+                  ms
+                </span>
               </div>
             );
           } else {

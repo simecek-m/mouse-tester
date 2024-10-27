@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .gutter-stable {
-    scrollbar-gutter: stable;
-  }
+.gutter-stable {
+  scrollbar-gutter: stable;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -17,12 +15,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.neutral.500');
   border-radius: 5px;
+  @apply bg-neutral-600 dark:bg-neutral-500;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.neutral.400');
+  @apply bg-neutral-800 dark:bg-neutral-400;
 }
 
 ::-webkit-slider-thumb {
@@ -31,14 +29,14 @@
   border-radius: 100%;
   width: 25px; 
   height: 25px;
-  background: theme("colors.red.400");
   cursor: pointer; 
+  @apply bg-red-600 dark:bg-red-400;
 }
 
 ::-moz-range-thumb {
   border-radius: 100%;
   width: 25px; 
   height: 25px;
-  background: theme("colors.red.400");
   cursor: pointer; 
+  @apply bg-red-600 dark:bg-red-400;
 }

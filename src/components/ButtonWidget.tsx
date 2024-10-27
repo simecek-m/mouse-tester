@@ -49,7 +49,7 @@ export const ButtonWidget: FC<ButtonWidgetProps> = ({
 
   return (
     <div
-      className="flex flex-col gap-4 bg-neutral-800 w-[25vw] h-[50vh] relative p-2"
+      className="flex flex-col gap-4 bg-neutral-300 dark:bg-neutral-800 w-[25vw] h-[50vh] relative p-2"
       onMouseDown={(e) => mouseHandler(e)}
       onContextMenu={(e) => e.preventDefault()}
     >
@@ -57,11 +57,13 @@ export const ButtonWidget: FC<ButtonWidgetProps> = ({
         <ButtonWidgetLabel type={buttonType} isError={isError} count={count} />
         <MouseEventLogsList events={times} threshold={threshold} />
       </div>
-      <div className="bg-neutral-700 p-2 text-neutral-300 rounded-sm">
+      <div className="bg-neutral-100 dark:bg-neutral-700 p-2 text-neutral-700 dark:text-neutral-300 rounded-sm">
         {count > 0 ? (
           <>
             <span>You've clicked</span>
-            <span className="text-white font-bold text-lg px-1">{count}</span>
+            <span className="text-black dark:text-white font-bold text-lg px-1">
+              {count}
+            </span>
             <span>times.</span>
           </>
         ) : (

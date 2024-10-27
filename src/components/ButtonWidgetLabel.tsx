@@ -16,18 +16,18 @@ export const ButtonWidgetLabel: FC<ButtonWidgetLabelProps> = ({
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       {count == 0 && (
-        <span className="mb-8 text-white font-bold text-lg">
+        <span className="mb-8 text-black dark:text-white font-bold text-lg text-center">
           Start by clicking {type} button here...
         </span>
       )}
       {count == 1 && (
-        <span className="mb-8 text-white font-bold text-lg">
+        <span className="mb-8 text-black dark:text-white font-bold text-lg">
           One more time!
         </span>
       )}
       <div>
         {isError && (
-          <div className="bg-red-500 font-bold mb-4 text-lg text-center px-4 py-2 rounded-xl">
+          <div className="dark:bg-red-500 bg-red-600 font-bold mb-4 text-lg text-center px-4 py-2 text-white dark:text-black rounded-xl">
             Double click!
           </div>
         )}
