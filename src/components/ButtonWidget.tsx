@@ -5,11 +5,11 @@ import { MouseEventLogsList } from "./MouseEventLogsList";
 
 const MAX_TIMES_VISIBLE: number = 50;
 
-interface ButtonWidgetProps {
+type ButtonWidgetProps = {
   title: string;
   buttonType: MouseButtonType;
   threshold: number;
-}
+};
 
 export const ButtonWidget: FC<ButtonWidgetProps> = ({
   buttonType,

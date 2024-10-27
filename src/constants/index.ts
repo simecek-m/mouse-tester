@@ -2,15 +2,15 @@ export type MouseButtonType = "left" | "middle" | "right";
 
 export type MouseButton = Record<MouseButtonType, number>;
 
-interface IMouse {
+type Mouse = {
   Button: MouseButton;
-}
+};
 
-interface IConstant {
-  Mouse: IMouse;
-}
+type Constant = {
+  Mouse: Mouse;
+};
 
-export const Constant: IConstant = {
+export const Constant: Constant = {
   Mouse: {
     Button: {
       left: 0,

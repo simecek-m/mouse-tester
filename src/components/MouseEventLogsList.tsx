@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { cn } from "../helpers";
 
-interface MouseEventLogsListProps {
+type MouseEventLogsListProps = {
   events: Array<number>;
   threshold: number;
-}
+};
 
 export const MouseEventLogsList: FC<MouseEventLogsListProps> = ({
   events,

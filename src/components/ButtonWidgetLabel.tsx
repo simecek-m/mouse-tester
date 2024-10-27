@@ -2,11 +2,11 @@ import { FC } from "react";
 import { MouseButtonType } from "../constants";
 import { MouseButtonIcon } from "./MouseButtonIcon";
 
-interface ButtonWidgetLabelProps {
+type ButtonWidgetLabelProps = {
   type: MouseButtonType;
   isError: boolean;
   count: number;
-}
+};
 
 export const ButtonWidgetLabel: FC<ButtonWidgetLabelProps> = ({
   type,

@@ -5,16 +5,16 @@ import MouseWheelIcon from "../assets/mouse/wheel.svg?react";
 import { MouseButtonType } from "../constants";
 import { cn } from "../helpers";
 
-interface MouseButtonIconProps {
+type MouseButtonIconProps = {
   type: MouseButtonType;
   isError: boolean;
-}
+};
 
 export const MouseButtonIcon: FC<MouseButtonIconProps> = ({
   type,
   isError,
 }) => {
-  const className = cn("fill-emerald-500 h-24", {
+  const className = cn("fill-emerald-700 dark:fill-emerald-500 h-24", {
     "fill-red-500": isError,
   });
 
