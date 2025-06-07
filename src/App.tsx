@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { ButtonWidget } from "./components/ButtonWidget";
+import { Button } from "@/components/ui/button";
 
 const App: FC = () => {
   const [threshold, setThreshold] = useState<number | null>(100);
@@ -76,6 +77,9 @@ const App: FC = () => {
             threshold={threshold ?? 0}
           />
         </section>
+      </div>
+      <div>
+        <Button variant="outline">Button</Button>
       </div>
     </div>
   );
