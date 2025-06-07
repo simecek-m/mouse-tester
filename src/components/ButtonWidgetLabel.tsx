@@ -27,7 +27,7 @@ export const ButtonWidgetLabel: FC<ButtonWidgetLabelProps> = ({
       )}
       <div>
         {isError && (
-          <div className="dark:bg-red-500 bg-red-600 font-bold mb-4 text-lg text-center px-4 py-2 text-white dark:text-black rounded-xl">
+          <div className="dark:bg-red-400 bg-red-600 font-bold mb-4 text-lg text-center px-4 py-2 text-white dark:text-black rounded-xl">
             Double click!
           </div>
         )}

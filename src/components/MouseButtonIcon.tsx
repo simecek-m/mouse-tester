@@ -14,8 +14,8 @@ export const MouseButtonIcon: FC<MouseButtonIconProps> = ({
   type,
   isError,
 }) => {
-  const className = cn("fill-emerald-700 dark:fill-emerald-500 h-24", {
-    "fill-red-500": isError,
+  const className = cn("fill-primary h-24", {
+    "fill-red-600 dark:fill-red-400": isError,
   });
 
   switch (type) {
