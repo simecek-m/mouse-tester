@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource/outfit";
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -43,6 +45,7 @@
 }
 
 @theme inline {
+  --font-sans: "Outfit", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
