@@ -1,6 +1,11 @@
-export type MouseButtonType = "left" | "middle" | "right";
+export type MouseButtonType =
+  | "left"
+  | "middle"
+  | "right"
+  | "side-bottom"
+  | "side-top";
 
-export type MouseButton = Record<MouseButtonType, number>;
+export type MouseButton = Record<number, MouseButtonType>;
 
 type Constant = {
   Mouse: {
@@ -14,9 +19,11 @@ type Constant = {
 export const Constant: Constant = {
   Mouse: {
     Button: {
-      left: 0,
-      middle: 1,
-      right: 2,
+      0: "left",
+      1: "middle",
+      2: "right",
+      3: "side-bottom",
+      4: "side-top",
     },
   },
   Threshold: {
