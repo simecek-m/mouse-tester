@@ -1,3 +1,4 @@
+import Logo from "@/assets/logo.svg?react";
 import { ButtonClickBox } from "@/components/ButtonClickBox";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
@@ -11,11 +12,15 @@ import { Slider } from "@/components/ui/slider";
 import { Constant, MouseButtonType } from "@/constants";
 import { Repeat2, RotateCcw, Settings2 } from "lucide-react";
 import { FC, useState } from "react";
-import Logo from "@/assets/logo.svg?react";
 
 export type Click = {
   type: MouseButtonType;
-  time: number;
+  times: number;
+};
+
+export type Clicks = {
+  type: MouseButtonType;
+  times: Array<number>;
 };
 
 const App: FC = () => {
@@ -23,7 +28,7 @@ const App: FC = () => {
     Constant.Threshold.Default
   );
 
-  const [clicks, setClicks] = useState<Array<Click>>([]);
+  const [clicks, setClicks] = useState<Clicks | null>();
 
   return (
     <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center gap-4">
@@ -38,16 +43,30 @@ const App: FC = () => {
         </div>
       </div>
       <ButtonClickBox
-        clicks={clicks}
-        onClick={(click) => setClicks((og) => [...og, click])}
+        clicks={clicks ?? null}
+        onClick={(click) => {
+          if (clicks?.type === click.type) {
+            const newClicks = {
+              ...clicks,
+              times: [...clicks.times, Date.now()],
+            };
+            setClicks(newClicks);
+          } else {
+            const newClicks: Clicks = {
+              type: click.type,
+              times: [Date.now()],
+            };
+            setClicks(newClicks);
+          }
+        }}
       />
       <div className="flex flex-row gap-2">
-        {clicks.length > 0 && (
+        {clicks && clicks.times.length > 0 && (
           <Button
             variant="outline"
             onClick={(event) => {
               event.stopPropagation();
-              setClicks([]);
+              setClicks(null);
             }}
           >
             <RotateCcw />
