@@ -11,6 +11,7 @@ import { Slider } from "@/components/ui/slider";
 import { Constant, MouseButtonType } from "@/constants";
 import { Repeat2, RotateCcw, Settings2 } from "lucide-react";
 import { FC, useState } from "react";
+import Logo from "@/assets/logo.svg?react";
 
 export type Click = {
   type: MouseButtonType;
@@ -27,11 +28,14 @@ const App: FC = () => {
   return (
     <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center gap-4">
       <ModeToggle />
-      <div className="flex flex-col items-center">
-        <h1>Tapper</h1>
-        <span className="text-sm">
-          test your mouse by detecting double clicks
-        </span>
+      <div className="flex flex-row items-center gap-8">
+        <Logo className="stroke-primary stroke-12 w-48" />
+        <div className="flex flex-col">
+          <h1>Tapper</h1>
+          <span className="text-sm">
+            test your mouse by detecting double clicks
+          </span>
+        </div>
       </div>
       <ButtonClickBox
         clicks={clicks}
