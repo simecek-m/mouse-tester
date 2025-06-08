@@ -1,14 +1,20 @@
 import { Click, Clicks } from "@/App";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Constant } from "@/constants";
+import { cn } from "@/lib/utils";
 import { MousePointerClick } from "lucide-react";
 
 type ButtonClickBoxProps = {
   clicks: Clicks | null;
   onClick: (click: Click) => void;
+  threshold: number;
 };
 
-export const ButtonClickBox = ({ clicks, onClick }: ButtonClickBoxProps) => {
+export const ButtonClickBox = ({
+  threshold,
+  clicks,
+  onClick,
+}: ButtonClickBoxProps) => {
   const onMouseDownHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -41,12 +47,18 @@ export const ButtonClickBox = ({ clicks, onClick }: ButtonClickBoxProps) => {
           <ScrollArea className="px-8 m-2">
             {clicks.times.map((time, index) => {
               if (index > 0) {
+                const timeBetweenClicks = clicks.times[index - 1] - time;
                 return (
-                  <div className="flex flex-row gap-1">
-                    <span className="w-full flex justify-end items-end">
-                      {time - clicks.times[index - 1]}
+                  <div className="flex flex-row gap-1 items-end">
+                    <span
+                      className={cn("w-full flex justify-end items-end", {
+                        "text-red-600 dark:text-red-500 font-bold text-lg":
+                          timeBetweenClicks < threshold,
+                      })}
+                    >
+                      {timeBetweenClicks}
                     </span>
-                    <span className="opacity-50">ms</span>
+                    <span className="opacity-50 text-sm">ms</span>
                   </div>
                 );
               }

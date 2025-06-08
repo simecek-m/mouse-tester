@@ -24,7 +24,7 @@ export type Clicks = {
 };
 
 const App: FC = () => {
-  const [threshold, setThreshold] = useState<number | null>(
+  const [threshold, setThreshold] = useState<number>(
     Constant.Threshold.Default
   );
 
@@ -43,12 +43,13 @@ const App: FC = () => {
         </div>
       </div>
       <ButtonClickBox
+        threshold={threshold}
         clicks={clicks ?? null}
         onClick={(click) => {
           if (clicks?.type === click.type) {
             const newClicks = {
               ...clicks,
-              times: [...clicks.times, Date.now()],
+              times: [Date.now(), ...clicks.times],
             };
             setClicks(newClicks);
           } else {
