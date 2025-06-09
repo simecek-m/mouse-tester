@@ -14,6 +14,9 @@ type Constant = {
   Threshold: {
     Default: number;
   };
+  Links: {
+    GitHub: string;
+  };
 };
 
 export const Constant: Constant = {
@@ -28,5 +31,8 @@ export const Constant: Constant = {
   },
   Threshold: {
     Default: 100,
+  },
+  Links: {
+    GitHub: "https://github.com/simecek-m/tapper",
   },
 };

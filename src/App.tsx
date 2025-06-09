@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
 import { Constant, MouseButtonType } from "@/constants";
-import { Repeat2, RotateCcw, Settings2 } from "lucide-react";
+import { Github, Repeat2, RotateCcw, Settings2 } from "lucide-react";
 import { FC, useState } from "react";
 
 export type Click = {
@@ -32,7 +32,16 @@ const App: FC = () => {
 
   return (
     <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center gap-4 p-4">
-      <ModeToggle />
+      <div className="flex flex-row absolute right-4 top-4 z-50 justify-center items-center gap-1">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => window.open(Constant.Links.GitHub, "_blank")}
+        >
+          <Github />
+        </Button>
+        <ModeToggle />
+      </div>
       <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8">
         <Logo className="stroke-primary stroke-12 w-48" />
         <div className="flex flex-col w-full text-center md:text-left">
