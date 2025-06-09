@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr(), tailwindcss()],
-  base: "/tapper",
+  base: "/tapper/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
