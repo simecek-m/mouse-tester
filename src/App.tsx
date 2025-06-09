@@ -31,11 +31,11 @@ const App: FC = () => {
   const [clicks, setClicks] = useState<Clicks | null>();
 
   return (
-    <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center gap-4">
+    <div className="flex flex-col w-screen h-screen bg-neutral-50 dark:bg-neutral-950 select-none justify-center items-center gap-4 p-4">
       <ModeToggle />
-      <div className="flex flex-row items-center gap-8">
+      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8">
         <Logo className="stroke-primary stroke-12 w-48" />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full text-center md:text-left">
           <h1>Tapper</h1>
           <span className="text-sm">
             test your mouse by detecting double clicks
@@ -61,10 +61,11 @@ const App: FC = () => {
           }
         }}
       />
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-col md:flex-row gap-2 w-full md:w-fit">
         {clicks && clicks.times.length > 0 && (
           <Button
             variant="outline"
+            className="w-full md:w-fit"
             onClick={(event) => {
               event.stopPropagation();
               setClicks(null);
@@ -76,7 +77,7 @@ const App: FC = () => {
         )}
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline">
+            <Button variant="outline" className="w-full md:w-fit">
               <Settings2 />
               Advanced
             </Button>

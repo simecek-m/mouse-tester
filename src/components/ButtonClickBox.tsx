@@ -29,7 +29,7 @@ export const ButtonClickBox = ({
 
   return (
     <div
-      className="h-1/2 w-1/2 aspect-square bg-white dark:bg-black justify-center items-center shadow-sm flex flex-col rounded-3xl m-4 gap-4"
+      className="flex flex-row h-full w-full max-h-1/2 max-w-4xl md:max-h-[600px] bg-white dark:bg-black shadow-sm justify-center items-center rounded-4xl"
       onContextMenu={(e) => e.preventDefault()}
       onMouseDown={onMouseDownHandler}
     >
