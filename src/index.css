@@ -10,45 +10,6 @@ h1 {
   @apply text-4xl font-black text-primary;
 }
 
-.gutter-stable {
-  scrollbar-gutter: stable;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  @apply bg-neutral-600 dark:bg-neutral-500;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-800 dark:bg-neutral-400;
-}
-
-::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 100%;
-  width: 25px; 
-  height: 25px;
-  cursor: pointer; 
-  @apply bg-red-600 dark:bg-red-400;
-}
-
-::-moz-range-thumb {
-  border-radius: 100%;
-  width: 25px; 
-  height: 25px;
-  cursor: pointer; 
-  @apply bg-red-600 dark:bg-red-400;
-}
-
 @theme inline {
   --font-sans: "Outfit", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
