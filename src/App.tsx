@@ -12,6 +12,7 @@ import { Slider } from "@/components/ui/slider";
 import { Constant, MouseButtonType } from "@/constants";
 import { Github, Repeat2, RotateCcw, Settings2 } from "lucide-react";
 import { FC, useState } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 export type Click = {
   type: MouseButtonType;
@@ -117,6 +118,7 @@ const App: FC = () => {
           </PopoverContent>
         </Popover>
       </div>
+      <Toaster />
     </div>
   );
 };
