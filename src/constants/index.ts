@@ -1,11 +1,14 @@
-export type MouseButtonType =
+export const SUPPORTED_MOUSE_BUTTONS = [0, 1, 2, 3, 4];
+
+export type MouseButtonTypeNumber = (typeof SUPPORTED_MOUSE_BUTTONS)[number];
+export type MouseButtonTypeName =
   | "left"
   | "middle"
   | "right"
   | "side-bottom"
   | "side-top";
 
-export type MouseButton = Record<number, MouseButtonType>;
+export type MouseButton = Record<MouseButtonTypeNumber, MouseButtonTypeName>;
 
 type Constant = {
   Mouse: {

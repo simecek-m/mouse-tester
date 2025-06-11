@@ -1,8 +1,9 @@
 import { Click, Clicks } from "@/App";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Constant } from "@/constants";
+import { Constant, SUPPORTED_MOUSE_BUTTONS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { MousePointerClick } from "lucide-react";
+import { toast } from "sonner";
 
 type ButtonClickBoxProps = {
   clicks: Clicks | null;
@@ -19,17 +20,21 @@ export const ButtonClickBox = ({
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     e.preventDefault();
-    console.log("Mouse down event:", e.button);
-    console.log(`${Constant.Mouse.Button[e.button]} button clicked`);
-    onClick({
-      type: Constant.Mouse.Button[e.button],
-      times: Date.now(),
-    });
+    if (SUPPORTED_MOUSE_BUTTONS.includes(e.button)) {
+      onClick({
+        type: Constant.Mouse.Button[e.button],
+        times: Date.now(),
+      });
+    } else {
+      toast.warning("Wrong button!", {
+        description: `This button is not supported.`,
+      });
+    }
   };
 
   return (
     <div
-      className="flex flex-row h-full w-full max-h-1/2 max-w-4xl md:max-h-[600px] bg-white dark:bg-black shadow-sm justify-center items-center rounded-4xl"
+      className="flex flex-row h-1/2 w-full max-w-4xl max-h-[600px] bg-white dark:bg-black shadow-sm justify-center items-center rounded-4xl"
       onContextMenu={(e) => e.preventDefault()}
       onMouseDown={onMouseDownHandler}
     >

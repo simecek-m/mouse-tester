@@ -9,18 +9,18 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
-import { Constant, MouseButtonType } from "@/constants";
+import { Constant, MouseButtonTypeName } from "@/constants";
 import { Github, Repeat2, RotateCcw, Settings2 } from "lucide-react";
 import { FC, useState } from "react";
 import { Toaster } from "@/components/ui/sonner";
 
 export type Click = {
-  type: MouseButtonType;
+  type: MouseButtonTypeName;
   times: number;
 };
 
 export type Clicks = {
-  type: MouseButtonType;
+  type: MouseButtonTypeName;
   times: Array<number>;
 };
 
